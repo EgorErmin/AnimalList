@@ -25,31 +25,28 @@ class AddAnimalTableViewController: UITableViewController {
     //if flag values false, the scene will load in new animal creation mode
     var flag = false
     
-    var name = ""
-    var kingdom = ""
-    var family = ""
-    var weight = ""
+    var animal = Animal()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.black
-        nameTextField.text = name
-        kingdomTextField.text = kingdom
-        familyTextField.text = family
-        weightTextField.text = weight
+        nameTextField.text = animal.name
+        kingdomTextField.text = animal.kingdom
+        familyTextField.text = animal.family
+        weightTextField.text = String(animal.weight)
         
         if flag {
             rightBarButtonItem.title = "Update"
         }
     }
     
-    //function for processing saving and updates item
+    //function for processing saving and updates item (with validaton)
     @IBAction func saveAnimal(sender: AnyObject){
-        name = nameTextField.text!
-        kingdom = kingdomTextField.text!
-        family = familyTextField.text!
+        animal.name = nameTextField.text!
+        animal.kingdom = kingdomTextField.text!
+        animal.family = familyTextField.text!
         //check for empty fields
-        if family == "" || kingdom == "" || family == "" {
+        if animal.name.isEmpty || animal.kingdom.isEmpty || animal.family.isEmpty {
             status.text = "You havn`t input some information!"
             status.textColor = UIColor.red
             return
@@ -57,24 +54,9 @@ class AddAnimalTableViewController: UITableViewController {
         //check for coorectness input weight
         if weightTextField.text!.count <= 6, let intWeight = Int(weightTextField.text!){
             if flag{
-                //update item
-                Database.database().reference().child(name).observe(.value , with: { (snapshot) in
-                    guard snapshot.childrenCount >= 1 else {
-                        self.status.text = "The animal not found!"
-                        self.status.textColor = UIColor.red
-                        return
-                    }
-                    let information = ["name": self.name, "kingdom": self.kingdom, "family": self.family, "weight": intWeight] as [String : Any]
-                    let updates = ["\(self.name)": information]
-                    Database.database().reference().updateChildValues(updates)
-                    self.status.text = "Information about animal update!"
-                    self.status.textColor = UIColor.green
-                    return
-                })
+                updateItem(weight: intWeight)
             } else {
-                //create new item
-                let newAnimal: NSDictionary = ["kingdom": kingdom, "family": family, "name": name, "weight": intWeight]
-                Database.database().reference().child(name).setValue(newAnimal)
+                createNewItem(weight: intWeight)
                 status.text = "Your animal add!"
                 status.textColor = UIColor.green
             }
@@ -82,6 +64,29 @@ class AddAnimalTableViewController: UITableViewController {
             status.text = "Weight input incorrect"
             status.textColor = UIColor.red
         }
+    }
+    
+    //function to update selection item
+    private func updateItem(weight: Int){
+        Database.database().reference().child(animal.name).observe(.value , with: { (snapshot) in
+            guard snapshot.childrenCount >= 1 else {
+                self.status.text = "The animal not found!"
+                self.status.textColor = UIColor.red
+                return
+            }
+            let information = ["name": self.animal.name, "kingdom": self.animal.kingdom, "family": self.animal.family, "weight": weight] as [String : Any]
+            let updates = ["\(self.animal.name)": information]
+            Database.database().reference().updateChildValues(updates)
+            self.status.text = "Information about animal update!"
+            self.status.textColor = UIColor.green
+            return
+        })
+    }
+    
+    //function to create a new item
+    private func createNewItem(weight: Int){
+        let newAnimal: NSDictionary = ["kingdom": animal.kingdom, "family": animal.family, "name": animal.name, "weight": weight]
+        Database.database().reference().child(animal.name).setValue(newAnimal)
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -93,12 +98,4 @@ class AddAnimalTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 5
     }
-    
-    //limit excessive character input
-    /*
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let combinedString = nameTextField.attributedText!.mutableCopy() as! NSMutableAttributedString
-        combinedString.replaceCharacters(in: range, with: string)
-        return combinedString.size().width > nameTextField.bounds.size.width
-    }*/
 }

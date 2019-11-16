@@ -38,10 +38,7 @@ class AnimalListTableViewController: UITableViewController {
         if(segue.identifier == "showWindow"){
             if let indexPath = tableView.indexPathForSelectedRow{
                 let destinationController = segue.destination as! AddAnimalTableViewController
-                destinationController.name = animals[indexPath.row].name
-                destinationController.kingdom = animals[indexPath.row].kingdom
-                destinationController.family = animals[indexPath.row].family
-                destinationController.weight = String(animals[indexPath.row].weight)
+                destinationController.animal = animals[indexPath.row]
                 destinationController.flag = true
             }
         }
@@ -64,14 +61,14 @@ class AnimalListTableViewController: UITableViewController {
     }
     
     //setting the received values
-    func configureCell(cell: UITableViewCell, indexPath: IndexPath){
+    private func configureCell(cell: UITableViewCell, indexPath: IndexPath){
         let animalList = animals[indexPath.row]
         cell.textLabel?.text = animalList.name
         cell.detailTextLabel?.text = animalList.family
     }
     
     //getting data
-    func loadDataFromFirebase(){
+    private func loadDataFromFirebase(){
         //start of the indicator
         indicator?.startAnimating()
         indicator?.hidesWhenStopped = true
@@ -79,6 +76,7 @@ class AnimalListTableViewController: UITableViewController {
         //loading data in list
         Database.database().reference().observe(.value, with: { (snapshot) in
             guard let value = snapshot.value, snapshot.exists() else{
+                self.indicator?.stopAnimating()
                 return
             }
             var listAnimal = [Animal]()

@@ -10,10 +10,10 @@ import Foundation
 
 //class describing the animal model
 class Animal{
-    let name: String
-    let kingdom: String
-    let family: String
-    let weight: Int
+    var name: String
+    var kingdom: String
+    var family: String
+    var weight: Int
 
     //class initializer
     init(snapshot: NSDictionary){
@@ -21,5 +21,12 @@ class Animal{
         self.kingdom = snapshot.value(forKey: "kingdom") as! String
         self.family = snapshot.value(forKey: "family") as! String
         self.weight = snapshot.value(forKey: "weight") as! Int
+    }
+    
+    init(){
+        self.name = ""
+        self.kingdom = ""
+        self.family = ""
+        self.weight = 0
     }
 }

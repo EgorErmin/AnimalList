@@ -16,7 +16,7 @@
 		74D0E1EF2371D04100CD71B7 /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D0E1EE2371D04100CD71B7 /* Animal.swift */; };
 		74D0E1F32371F3DF00CD71B7 /* AnimalListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D0E1F22371F3DF00CD71B7 /* AnimalListTableViewController.swift */; };
 		74D0E1F52371F41200CD71B7 /* AddAnimalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D0E1F42371F41200CD71B7 /* AddAnimalTableViewController.swift */; };
-		74FEEFDC23736A1E00AA6C26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74FEEFDB23736A1E00AA6C26 /* GoogleService-Info.plist */; };
+		74FB35E4237D687A00E355EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74FB35E3237D687A00E355EF /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +32,7 @@
 		74D0E1EE2371D04100CD71B7 /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
 		74D0E1F22371F3DF00CD71B7 /* AnimalListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalListTableViewController.swift; sourceTree = "<group>"; };
 		74D0E1F42371F41200CD71B7 /* AddAnimalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnimalTableViewController.swift; sourceTree = "<group>"; };
-		74FEEFDB23736A1E00AA6C26 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		74FB35E3237D687A00E355EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FB4490F7DA456B40C97B931E /* Pods-AnimalView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimalView.debug.xcconfig"; path = "Target Support Files/Pods-AnimalView/Pods-AnimalView.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,7 +82,7 @@
 				74D0E1F72371F88500CD71B7 /* Model */,
 				74D0E1D42371C09D00CD71B7 /* AppDelegate.swift */,
 				74D0E1D62371C09D00CD71B7 /* SceneDelegate.swift */,
-				74FEEFDB23736A1E00AA6C26 /* GoogleService-Info.plist */,
+				74FB35E3237D687A00E355EF /* GoogleService-Info.plist */,
 				74D0E1F62371F85D00CD71B7 /* Controllers */,
 			);
 			path = AnimalView;
@@ -185,7 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74D0E1E12371C09F00CD71B7 /* LaunchScreen.storyboard in Resources */,
-				74FEEFDC23736A1E00AA6C26 /* GoogleService-Info.plist in Resources */,
+				74FB35E4237D687A00E355EF /* GoogleService-Info.plist in Resources */,
 				74D0E1DE2371C09F00CD71B7 /* Assets.xcassets in Resources */,
 				74D0E1DC2371C09D00CD71B7 /* Main.storyboard in Resources */,
 			);
