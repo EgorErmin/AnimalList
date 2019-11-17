@@ -33,17 +33,6 @@ class AnimalListTableViewController: UITableViewController {
         return true
     }
     
-    //transition to an editing scene with the setting in the values of the chosen item
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "showWindow"){
-            if let indexPath = tableView.indexPathForSelectedRow{
-                let destinationController = segue.destination as! AddAnimalTableViewController
-                destinationController.animal = animals[indexPath.row]
-                destinationController.flag = true
-            }
-        }
-    }
-    
     //deleting a list item
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
@@ -94,5 +83,16 @@ class AnimalListTableViewController: UITableViewController {
     //transition to the scene of creating a new item
     @IBAction func openCreatNewAnimal(){
         performSegue(withIdentifier: "showWindow", sender: nil)
+    }
+    
+    //transition to an editing scene with the setting in the values of the chosen item
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "showWindow"){
+            if let indexPath = tableView.indexPathForSelectedRow{
+                let destinationController = segue.destination as! AddNewItemViewController
+                destinationController.animal = animals[indexPath.row]
+                destinationController.flag = true
+            }
+        }
     }
 }
