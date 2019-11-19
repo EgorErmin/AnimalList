@@ -43,9 +43,9 @@ class AddNewItemViewController: UIViewController {
     
     //function for processing saving and updates item (with validaton)
     @IBAction func saveAnimal(sender: AnyObject){
-        animal.name = nameTextField.text!
-        animal.kingdom = kingdomTextField.text!
-        animal.family = familyTextField.text!
+        animal.name = (nameTextField.text ?? "")
+        animal.kingdom = (kingdomTextField.text ?? "")
+        animal.family = (familyTextField.text ?? "")
         //check for empty fields
         if animal.name.isEmpty || animal.kingdom.isEmpty || animal.family.isEmpty {
             status.text = "You havn`t input some information!"
