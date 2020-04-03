@@ -25,15 +25,20 @@ class AddNewItemViewController: UIViewController {
     //if flag values false, the scene will load in new animal creation mode
     var flag = false
     
-    var animal = Animal()
+    var animal: Animal?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.black
+        guard let animal = animal else { return }
         nameTextField.text = animal.name
         kingdomTextField.text = animal.kingdom
         familyTextField.text = animal.family
         weightTextField.text = String(animal.weight)
+        
+        let date = DateFormatter()
+        date.dateFormat = "MM-dd-yyyy HH:mm"
+        status.text = "Was create \(date.string(from: animal.date!))"
         
         if flag {
             navigationItem.title = "Update Animal"
@@ -42,7 +47,8 @@ class AddNewItemViewController: UIViewController {
     }
     
     //function for processing saving and updates item (with validaton)
-    @IBAction func saveAnimal(sender: AnyObject){
+    @IBAction func saveAnimal(sender: AnyObject) {
+        guard let animal = animal else { return }
         animal.name = (nameTextField.text ?? "")
         animal.kingdom = (kingdomTextField.text ?? "")
         animal.family = (familyTextField.text ?? "")
@@ -68,15 +74,16 @@ class AddNewItemViewController: UIViewController {
     }
     
     //function to update selection item
-    private func updateItem(weight: Int){
+    private func updateItem(weight: Int) {
+        guard let animal = animal else { return }
         Database.database().reference().child(animal.name).observe(.value , with: { (snapshot) in
             guard snapshot.childrenCount >= 1 else {
                 self.status.text = "The animal not found!"
                 self.status.textColor = UIColor.red
                 return
             }
-            let information = ["name": self.animal.name, "kingdom": self.animal.kingdom, "family": self.animal.family, "weight": weight] as [String : Any]
-            let updates = ["\(self.animal.name)": information]
+            let information = ["name": animal.name, "kingdom": animal.kingdom, "family": animal.family, "weight": weight, "createdAt": Date().timeIntervalSince1970] as [String : Any]
+            let updates = ["\(animal.name)": information]
             Database.database().reference().updateChildValues(updates)
             self.status.text = "Information about animal update!"
             self.status.textColor = UIColor.green
@@ -85,8 +92,9 @@ class AddNewItemViewController: UIViewController {
     }
     
     //function to create a new item
-    private func createNewItem(weight: Int){
-        let newAnimal: NSDictionary = ["kingdom": animal.kingdom, "family": animal.family, "name": animal.name, "weight": weight]
+    private func createNewItem(weight: Int) {
+        guard let animal = animal else { return }
+        let newAnimal: NSDictionary = ["kingdom": animal.kingdom, "family": animal.family, "name": animal.name, "weight": weight, "createdAt": Date().timeIntervalSince1970]
         Database.database().reference().child(animal.name).setValue(newAnimal)
     }
 }

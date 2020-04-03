@@ -8,31 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		10FEFC93038F0DAD61C1293F /* Pods_AnimalView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 206FEA4BB14A5F3BD2729E1C /* Pods_AnimalView.framework */; };
+		583AF8032437783000798096 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 583AF8022437783000798096 /* GoogleService-Info.plist */; };
 		749C6F012381AC6400D9C710 /* AddNewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749C6F002381AC6400D9C710 /* AddNewItemViewController.swift */; };
 		74D0E1D52371C09D00CD71B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D0E1D42371C09D00CD71B7 /* AppDelegate.swift */; };
-		74D0E1D72371C09D00CD71B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D0E1D62371C09D00CD71B7 /* SceneDelegate.swift */; };
 		74D0E1DC2371C09D00CD71B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D0E1DA2371C09D00CD71B7 /* Main.storyboard */; };
 		74D0E1DE2371C09F00CD71B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74D0E1DD2371C09F00CD71B7 /* Assets.xcassets */; };
 		74D0E1E12371C09F00CD71B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D0E1DF2371C09F00CD71B7 /* LaunchScreen.storyboard */; };
 		74D0E1EF2371D04100CD71B7 /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D0E1EE2371D04100CD71B7 /* Animal.swift */; };
 		74D0E1F32371F3DF00CD71B7 /* AnimalListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D0E1F22371F3DF00CD71B7 /* AnimalListTableViewController.swift */; };
-		74FB35E4237D687A00E355EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74FB35E3237D687A00E355EF /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		206FEA4BB14A5F3BD2729E1C /* Pods_AnimalView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimalView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3774B0FA8D703869294FD02F /* Pods-AnimalView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimalView.release.xcconfig"; path = "Target Support Files/Pods-AnimalView/Pods-AnimalView.release.xcconfig"; sourceTree = "<group>"; };
+		583AF8022437783000798096 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		749C6F002381AC6400D9C710 /* AddNewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewItemViewController.swift; sourceTree = "<group>"; };
 		74D0E1D12371C09D00CD71B7 /* AnimalView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74D0E1D42371C09D00CD71B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		74D0E1D62371C09D00CD71B7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		74D0E1DB2371C09D00CD71B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		74D0E1DD2371C09F00CD71B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74D0E1E02371C09F00CD71B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74D0E1E22371C09F00CD71B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74D0E1EE2371D04100CD71B7 /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
 		74D0E1F22371F3DF00CD71B7 /* AnimalListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalListTableViewController.swift; sourceTree = "<group>"; };
-		74FB35E3237D687A00E355EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FB4490F7DA456B40C97B931E /* Pods-AnimalView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimalView.debug.xcconfig"; path = "Target Support Files/Pods-AnimalView/Pods-AnimalView.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				74D0E1D32371C09D00CD71B7 /* AnimalView */,
+				583AF8022437783000798096 /* GoogleService-Info.plist */,
 				74D0E1D22371C09D00CD71B7 /* Products */,
 				2209965227DD70978289762D /* Pods */,
 				AA211704304527E2F6A54C3B /* Frameworks */,
@@ -80,10 +79,8 @@
 			children = (
 				74D0E1F82371F89300CD71B7 /* View */,
 				74D0E1F72371F88500CD71B7 /* Model */,
-				74D0E1D42371C09D00CD71B7 /* AppDelegate.swift */,
-				74D0E1D62371C09D00CD71B7 /* SceneDelegate.swift */,
-				74FB35E3237D687A00E355EF /* GoogleService-Info.plist */,
 				74D0E1F62371F85D00CD71B7 /* Controllers */,
+				74D0E1D42371C09D00CD71B7 /* AppDelegate.swift */,
 			);
 			path = AnimalView;
 			sourceTree = "<group>";
@@ -185,7 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74D0E1E12371C09F00CD71B7 /* LaunchScreen.storyboard in Resources */,
-				74FB35E4237D687A00E355EF /* GoogleService-Info.plist in Resources */,
+				583AF8032437783000798096 /* GoogleService-Info.plist in Resources */,
 				74D0E1DE2371C09F00CD71B7 /* Assets.xcassets in Resources */,
 				74D0E1DC2371C09D00CD71B7 /* Main.storyboard in Resources */,
 			);
@@ -244,7 +241,6 @@
 				74D0E1EF2371D04100CD71B7 /* Animal.swift in Sources */,
 				749C6F012381AC6400D9C710 /* AddNewItemViewController.swift in Sources */,
 				74D0E1D52371C09D00CD71B7 /* AppDelegate.swift in Sources */,
-				74D0E1D72371C09D00CD71B7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +316,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -374,7 +370,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -390,6 +386,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QLB4T8N436;
 				INFOPLIST_FILE = AnimalView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -408,6 +405,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QLB4T8N436;
 				INFOPLIST_FILE = AnimalView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

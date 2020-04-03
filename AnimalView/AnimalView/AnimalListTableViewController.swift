@@ -11,6 +11,7 @@ import Firebase
 
 class AnimalListTableViewController: UITableViewController {
     
+    @IBOutlet var animalTableView: UITableView!
     @IBOutlet var indicator: UIActivityIndicatorView?
 
     var animals = [Animal]()
@@ -21,6 +22,7 @@ class AnimalListTableViewController: UITableViewController {
         loadDataFromFirebase()
     }
 
+    // MARK: - UITableviewDelegate
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -39,7 +41,7 @@ class AnimalListTableViewController: UITableViewController {
             let animalList = animals[indexPath.row]
             Database.database().reference().child(animalList.name).removeValue()
             animals.remove(at: indexPath.row)
-            tableView.reloadData()
+            animalTableView.reloadData()
         }
     }
     
@@ -50,45 +52,45 @@ class AnimalListTableViewController: UITableViewController {
     }
     
     //setting the received values
-    private func configureCell(cell: UITableViewCell, indexPath: IndexPath){
+    private func configureCell(cell: UITableViewCell, indexPath: IndexPath) {
         let animalList = animals[indexPath.row]
         cell.textLabel?.text = animalList.name
         cell.detailTextLabel?.text = animalList.family
     }
     
     //getting data
-    private func loadDataFromFirebase(){
+    private func loadDataFromFirebase() {
         //start of the indicator
         indicator?.startAnimating()
         indicator?.hidesWhenStopped = true
         
         //loading data in list
         Database.database().reference().observe(.value, with: { (snapshot) in
-            guard let value = snapshot.value, snapshot.exists() else{
+            guard let value = snapshot.value, snapshot.exists() else {
                 self.indicator?.stopAnimating()
                 return
             }
             var listAnimal = [Animal]()
-            var list: NSDictionary = value as! NSDictionary
+            let list: NSDictionary = value as! NSDictionary
             for child in list{
                 let animal = Animal(snapshot: child.value as! NSDictionary)
                 listAnimal.append(animal)
             }
             self.animals = listAnimal
             self.indicator?.stopAnimating()
-            self.tableView.reloadData()
+            self.animalTableView.reloadData()
         })
     }
     
     //transition to the scene of creating a new item
-    @IBAction func openCreatNewAnimal(){
+    @IBAction func openCreatNewAnimal() {
         performSegue(withIdentifier: "showWindow", sender: nil)
     }
     
     //transition to an editing scene with the setting in the values of the chosen item
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "showWindow"){
-            if let indexPath = tableView.indexPathForSelectedRow{
+            if let indexPath = animalTableView.indexPathForSelectedRow {
                 let destinationController = segue.destination as! AddNewItemViewController
                 destinationController.animal = animals[indexPath.row]
                 destinationController.flag = true
